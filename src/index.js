@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Login from './views/Login';
 import reportWebVitals from './reportWebVitals';
+import './assets/bootstrap/bootstrap.min.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
+const router  = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login/>
+  }
+]);
+// errorElement: <element> para cuando no se cuentre la página
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider  router={router}/>
   </React.StrictMode>
 );
 
