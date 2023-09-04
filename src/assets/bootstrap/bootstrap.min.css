@@ -9,10 +9,10 @@
  * Copyright 2011-2023 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap);
+/* @import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap); */
 :root,
 [data-bs-theme="light"] {
-  --bs-blue: #3459e6;
+  --bs-blue: #206d6c;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
@@ -35,9 +35,9 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #3459e6;
+  --bs-primary: #206d6c;
   --bs-secondary: #fff;
-  --bs-success: #2fb380;
+  --bs-success: #bf953b;
   --bs-info: #287bb5;
   --bs-warning: #f4bd61;
   --bs-danger: #da292e;
@@ -2988,8 +2988,8 @@ fieldset:disabled .btn {
 }
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #3459e6;
-  --bs-btn-border-color: #3459e6;
+  --bs-btn-bg: #206d6c;
+  --bs-btn-border-color: #206d6c;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #2c4cc4;
   --bs-btn-hover-border-color: #2a47b8;
@@ -2999,8 +2999,8 @@ fieldset:disabled .btn {
   --bs-btn-active-border-color: #2743ad;
   --bs-btn-active-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #3459e6;
-  --bs-btn-disabled-border-color: #3459e6;
+  --bs-btn-disabled-bg: #206d6c;
+  --bs-btn-disabled-border-color: #206d6c;
 }
 .btn-secondary {
   --bs-btn-color: #000;
@@ -3020,8 +3020,8 @@ fieldset:disabled .btn {
 }
 .btn-success {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #2fb380;
-  --bs-btn-border-color: #2fb380;
+  --bs-btn-bg: #bf953b;
+  --bs-btn-border-color: #bf953b;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #28986d;
   --bs-btn-hover-border-color: #268f66;
@@ -3031,8 +3031,8 @@ fieldset:disabled .btn {
   --bs-btn-active-border-color: #238660;
   --bs-btn-active-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #2fb380;
-  --bs-btn-disabled-border-color: #2fb380;
+  --bs-btn-disabled-bg: #bf953b;
+  --bs-btn-disabled-border-color: #bf953b;
 }
 .btn-info {
   --bs-btn-color: #fff;
