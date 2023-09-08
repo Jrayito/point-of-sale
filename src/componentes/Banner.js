@@ -22,7 +22,7 @@ export const Banner = ({ titleClass, subtitleClass, isAnimation }) => {
          <span className={`d-block text-start subtitle ${subtitleClass ?? ""}`}>
             {isAnimation
                ? "La puerta a la gestión eficiente de tu negocio se abre aquí."
-               : "Ingresa al centro de operaciones: tu negocio, tu control."}
+               : <span>Ingresa al centro de operaciones:<b> tu negocio, tu control</b></span>}
             <strong>
                {isAnimation ? text : ""}
             </strong>
