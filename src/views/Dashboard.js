@@ -1,25 +1,18 @@
 import React from "react";
-import {Sidebar} from '../componentes/Sidebar.js';
-import {useAuth} from '../context/authContext';
+import { Sidebar } from "../componentes/Sidebar.js";
+import { MainContainer } from "../componentes/MainContainer.js";
+import { MainHeader } from "../componentes/MainHeader.js";
 
 export const Dashboard = () => {
-   const {logout} = useAuth();
-   
-   const handleLogout = async () => {
-      try {
-         await logout();
-      } catch (error) {
-         console.log(error.code);
-      }
-   }
-
-   return (
-      <>
+  return (
+    <div className="container-sidebar">
       <Sidebar />
-      <button onClick={handleLogout} className="btn btn-success">
-         Cerrar Sesión
-      </button>
-      </>
-      
-   )
-}
+      <MainContainer>
+        <MainHeader />
+        <section className="mt-4">
+          <h4>Dashboard</h4>
+        </section>
+      </MainContainer>
+    </div>
+  );
+};
