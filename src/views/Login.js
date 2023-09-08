@@ -12,15 +12,16 @@ export const Login = () => {
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
 
-   const handleUser = (usuario) => {
-      setUser(usuario);
+   const handleUser = (evt) => {
+      setUser(evt.target.value);
    }
 
-   const handlePassword = (password) => {
-      setPassword(password)
+   const handlePassword = (evt) => {
+      setPassword(evt.target.value)
    }
 
-   const handleSubmit = async () => {
+   const handleSubmit = async (evt) => {
+      evt.preventDefault();
       setError("");
       try {
          await login(user, password);
@@ -37,29 +38,25 @@ export const Login = () => {
             <div className="col-md-8 d-none d-md-block gradient d-flex flex-column justify-content-center align-items-center">
                <div className="container-logan">
                   <div>
-                     <Banner subtitleClass="text-white"/>
-                     {/* <h2 className='text-white d-block text-start name'><b>BizTrack</b></h2>
-                     <span className='d-block text-white text-start subtitle'>Ingresa al centro de operaciones: <strong>tu negocio, tu control.</strong></span> */}
+                     <Banner subtitleClass="text-white" isAnimation={false}/>
                   </div>
                </div>
             </div>
             <div className="col-md-4 col-12 d-flex align-items-center">
                <div className="container p-5">
-                  <Banner titleClass="name-form" subtitleClass="text-black subtitle-form" />
-                  {/* <h2 className='text-white d-block text-start name name-form'><b>BizTrack</b></h2>
-                  <span className='d-block text-black text-start subtitle subtitle-form'>Ingresa al centro de operaciones: <strong>tu negocio, tu control.</strong></span> */}
+                  <Banner titleClass="name-form" subtitleClass="text-black subtitle-form" isAnimation={false} />
                   <h3 className='mt-5'>¡Bienvenido!</h3>
-                  <span>Escriba su usuario y contraseña.</span>
+                  {!error ? <span>Escriba su usuario y contraseña.</span> : <span className='text-danger'>{error}</span>}
                   <form className='mt-4'>
                      <div className="form-group">
                         <label htmlFor="email">Correo electrónico</label>
-                        <input type="email" id="email" name="email" className="form-control" />
+                        <input type="email" id="email" name="email" className="form-control" onChange={handleUser} />
                      </div>
                      <div className="form-group mt-3">
                         <label htmlFor="password">Contraseña</label>
-                        <input type="password" id="password" name="password" className="form-control" />
+                        <input type="password" id="password" name="password" className="form-control" onChange={handlePassword}/>
                      </div>
-                     <button type="submit" className="btn btn-primary mt-3">Iniciar sesión</button>
+                     <button type="submit" className="btn btn-primary mt-3" onClick={handleSubmit}>Iniciar sesión</button>
                   </form>
                </div>
             </div>
