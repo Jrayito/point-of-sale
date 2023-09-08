@@ -1,10 +1,6 @@
-.container-login{
-   position: relative;
-   width: 100vw;
-   height: 100vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.gradient{
+   background: rgb(9,55,121);
+   background: linear-gradient(0deg, #093779 4%, rgba(18,76,88,1) 65%);
 }
 
 input.form-control{
@@ -12,3 +8,27 @@ input.form-control{
    box-shadow: none;
    outline: none;
 }
+.name{
+   font-size: 5rem;
+}
+.subtitle{
+   font-size: 1.2rem;
+}
+.container-logan{
+   display: grid;
+   place-items: center;
+   height: 100%;
+}
+.name-form{
+   color: rgb(18,76,88,1) !important;
+   display: none !important;
+}
+.subtitle-form{
+   display: none !important;
+}
+
+@media (max-width: 768px) {
+   .name-form, .subtitle-form {
+     display: block !important;
+   }
+ }
