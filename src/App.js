@@ -8,7 +8,7 @@ import { Dashboard } from './views/Dashboard.js';
 
 function App() {
   return (
-    <div className="App">
+    <div className="vh-100 bg-body-tertiary">
       <AuthProvider>
         <Routes>
           <Route path="/" element={
