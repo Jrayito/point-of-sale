@@ -1,4 +1,5 @@
 import React from "react";
+import {Sidebar} from '../componentes/Sidebar.js';
 import {useAuth} from '../context/authContext';
 
 export const Dashboard = () => {
@@ -13,8 +14,12 @@ export const Dashboard = () => {
    }
 
    return (
+      <>
+      <Sidebar />
       <button onClick={handleLogout} className="btn btn-success">
          Cerrar Sesión
       </button>
+      </>
+      
    )
 }

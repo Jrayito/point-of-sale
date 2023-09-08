@@ -38,7 +38,7 @@ export const Login = () => {
             <div className="col-md-8 d-none d-md-block gradient d-flex flex-column justify-content-center align-items-center">
                <div className="container-logan">
                   <div>
-                     <Banner subtitleClass="text-white" isAnimation={false}/>
+                     <Banner subtitleClass="text-white" isAnimation={true}/>
                   </div>
                </div>
             </div>
