@@ -1,0 +1,11 @@
+.container-sidebar{
+   display: flex;
+   height: 100%;
+   min-height: 400px;
+}
+
+.container-menu-sidebar{
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+}
