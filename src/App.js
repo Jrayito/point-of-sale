@@ -5,6 +5,7 @@ import { Login } from './views/Login.js';
 import { AuthProvider } from './context/authContext.js';
 import { ProtectedRoute } from './componentes/ProtectedRoute.js';
 import { Dashboard } from './views/Dashboard.js';
+import './style/button.css';
 
 function App() {
   return (
