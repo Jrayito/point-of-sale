@@ -1,5 +1,5 @@
 import React from "react";
-import { Sidebar } from "../componentes/Sidebar.js";
+import { Sidebar } from "../componentes/sidebar/Sidebar.js";
 import { MainContainer } from "../componentes/MainContainer.js";
 import { MainHeader } from "../componentes/MainHeader.js";
 

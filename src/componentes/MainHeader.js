@@ -17,7 +17,7 @@ export const MainHeader = ({ targetModal }) => {
       <button
         className="btn btn-primary"
         data-bs-toggle="modal"
-        data-bs-target={targetModal}
+        data-bs-target="#ModalProductoNuevo"
       >
         <span className="d-flex aling-items-center justify-content-center">
           <Icon name="add" />

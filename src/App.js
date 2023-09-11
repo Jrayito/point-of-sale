@@ -1,5 +1,7 @@
 import React from "react";
 import "./assets/bootstrap/main.css";
+// import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.css";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./views/Login.js";
 import { AuthProvider } from "./context/authContext.js";
@@ -8,6 +10,7 @@ import { ProtectedRoute } from "./componentes/ProtectedRoute.js";
 import { Dashboard } from "./views/Dashboard.js";
 import { Productos } from "./views/Productos.js";
 import "./style/reset.css";
+import "bootstrap/dist/js/bootstrap.bundle.js"; // Carga del js de bootstrap
 
 function App() {
   return (

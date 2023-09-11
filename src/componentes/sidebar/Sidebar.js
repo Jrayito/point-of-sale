@@ -1,9 +1,9 @@
 import { Sidebar as Bar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import { Icon } from "../componentes/Icon.js";
+import { Icon } from "../Icon.js";
 import { Link } from "react-router-dom";
 import { SideBarHeader } from "./SideBarHeader.js";
-import "../style/sidebar.css";
-import { useSidebar } from "../context/sidebarContext.js";
+import "../../style/sidebar.css";
+import { useSidebar } from "../../context/sidebarContext.js";
 
 export const Sidebar = () => {
   const { collapsed } = useSidebar();

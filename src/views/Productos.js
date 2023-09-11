@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Sidebar } from "../componentes/Sidebar.js";
+import { Sidebar } from "../componentes/sidebar/Sidebar.js";
 import { MainContainer } from "../componentes/MainContainer.js";
 import { MainHeader } from "../componentes/MainHeader.js";
 import { Loader } from "../componentes/Loader.js";
@@ -14,7 +14,7 @@ export const Productos = () => {
       <div className="container-sidebar">
         <Sidebar />
         <MainContainer>
-          <MainHeader targetModal={"#ModalProductoNuevo"} />
+          <MainHeader targetModal="#ModalProductoNuevo" />
           <section className="mt-4">
             <h4>Productos</h4>
           </section>
