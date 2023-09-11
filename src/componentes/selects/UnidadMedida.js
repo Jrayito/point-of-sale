@@ -1,4 +1,20 @@
+import React, { useState } from "react";
+import Select from "react-select";
+
+export const unidadesMedidas = [
+  { value: "pza", label: "Pieza" },
+  { value: "mt", label: "Metros" },
+  { value: "lt", label: "Litros" },
+  { value: "k", label: "Kilos" },
+];
+
 export const SelectUnidadMedida = ({ selectID, col = "col-md-3" }) => {
+  const [selectedOption, setSelectedOption] = useState(unidadesMedidas[0]);
+
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+
   return (
     <div className={`mb-2 ${col}`}>
       <label
@@ -8,15 +24,12 @@ export const SelectUnidadMedida = ({ selectID, col = "col-md-3" }) => {
       >
         Unidad de Medida
       </label>
-      <select name={selectID} id={selectID} className="form-select">
-        <option value="0" defaultValue disabled>
-          - Seleccionar --
-        </option>
-        <option value="pza">Pieza</option>
-        <option value="mt">Metros</option>
-        <option value="lt">Litros</option>
-        <option value="kl">Kilos</option>
-      </select>
+      <Select
+        options={unidadesMedidas}
+        defaultValue={selectedOption}
+        onChange={handleChange}
+        isSearchable={false}
+      />
     </div>
   );
 };
