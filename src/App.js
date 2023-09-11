@@ -1,5 +1,5 @@
 import React from "react";
-import "./assets/bootstrap/bootstrap.min.css";
+import "./assets/bootstrap/main.css";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./views/Login.js";
 import { AuthProvider } from "./context/authContext.js";

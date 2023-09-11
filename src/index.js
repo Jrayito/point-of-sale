@@ -1,14 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from  './App.js';
-import reportWebVitals from './reportWebVitals';
-import './assets/bootstrap/bootstrap.min.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App.js";
+import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import './controllers/firebase.js'
+import "./controllers/firebase.js";
 
 // errorElement: <element> para cuando no se cuentre la página
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <App />
