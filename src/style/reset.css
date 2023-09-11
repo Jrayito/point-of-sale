@@ -3,30 +3,3 @@
 .color3 { background-color: #206d6c };
 .color4 { background-color: #5a9c9c };
 .color5 { background-color: #d3c5ac };
-
-.btn-primary:hover{
-   background-color: rgba(32, 111, 109, 0.9) !important;
-   border: 1px solid #206d6c !important;
-}
-
-.btn-primary{
-   background-color: #206d6c !important;
-   border: 1px solid #206d6c !important;
-}
-
-
-.btn-success{
-   background-color: #bf953b !important;
-   border: 1px solid #bf953b !important;
-}
-
-.btn-success:hover{
-   background-color: rgba(191, 149, 59, 0.9) !important;
-   border: 1px solid #bf953b !important;
-}
-.text-primary{
-   color: #206d6c !important;
-}
-.text-success{
-   color: #bf953b !important;
-}
