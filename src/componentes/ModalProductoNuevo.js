@@ -1,8 +1,14 @@
-import { BottonGuardar } from "./ButtonGuardar";
-import { CustomInput } from "./CustomInput";
+import { useState } from "react";
+import { BottonGuardar } from "./buttons/ButtonGuardar";
+import { CustomInput } from "./inputs/CustomInput";
 import { SelectUnidadMedida } from "./selects/UnidadMedida";
+import { InputMoney } from "./inputs/inputMoney.js";
 
 export const ModalProductoNuevo = () => {
+  const [money, setMoney] = useState(0);
+  const handleGetMoney = (money) => {
+    console.log(money);
+  };
   return (
     <div
       className="modal fade"
@@ -38,6 +44,18 @@ export const ModalProductoNuevo = () => {
                 col="col-md-9"
               />
               <SelectUnidadMedida selectID="selectUnidadMedida" />
+              <InputMoney
+                money={money}
+                setMoney={handleGetMoney}
+                inputID={"002"}
+                description="Precio de compra:"
+              />
+              <InputMoney
+                money={money}
+                setMoney={handleGetMoney}
+                inputID={"002"}
+                description="Precio de venta:"
+              />
             </div>
           </div>
           <div className="modal-footer">
