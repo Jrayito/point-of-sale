@@ -3,13 +3,13 @@ export const SelectUnidadMedida = ({ selectID, col = "col-md-3" }) => {
     <div className={`mb-2 ${col}`}>
       <label
         htmlFor={selectID}
-        class="form-label mb-1"
+        className="form-label mb-1"
         style={{ fontSize: "0.85rem" }}
       >
         Unidad de Medida
       </label>
       <select name={selectID} id={selectID} className="form-select">
-        <option value="0" selected disabled>
+        <option value="0" defaultValue disabled>
           - Seleccionar --
         </option>
         <option value="pza">Pieza</option>

@@ -7,7 +7,7 @@ export const BottonGuardar = ({ handleGuardar, isSave = false }) => {
         <span className="d-flex align-items-center justify-content-center">
           {isSave ? (
             <span
-              class="spinner-border spinner-border-sm"
+              className="spinner-border spinner-border-sm"
               aria-hidden="true"
             ></span>
           ) : (
