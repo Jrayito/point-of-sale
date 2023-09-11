@@ -1,4 +1,6 @@
 import { BottonGuardar } from "./ButtonGuardar";
+import { CustomInput } from "./CustomInput";
+import { SelectUnidadMedida } from "./selects/UnidadMedida";
 
 export const ModalProductoNuevo = () => {
   return (
@@ -8,7 +10,7 @@ export const ModalProductoNuevo = () => {
       aria-labelledby="ModalProductoNuevoLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-lg">
+      <div className="modal-dialog modal-xl">
         <div className="modal-content">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="ModalProductoNuevoLabel">
@@ -22,7 +24,21 @@ export const ModalProductoNuevo = () => {
             ></button>
           </div>
           <div className="modal-body">
-            <h6>Informacion general:</h6>
+            <h6 className="mb-2">Informacion general:</h6>
+            <div className="row">
+              <CustomInput
+                descripcion="SKU"
+                inputID="inputSKU"
+                placeholder="00000000"
+              />
+              <CustomInput
+                descripcion="Descripción"
+                inputID="inputDescripcion"
+                placeholder="Descripción del producto"
+                col="col-md-9"
+              />
+              <SelectUnidadMedida selectID="selectUnidadMedida" />
+            </div>
           </div>
           <div className="modal-footer">
             <button
