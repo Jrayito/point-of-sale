@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Select from "react-select";
 
 export const unidadesMedidas = [
@@ -8,11 +8,14 @@ export const unidadesMedidas = [
   { value: "k", label: "Kilos" },
 ];
 
-export const SelectUnidadMedida = ({ selectID, col = "col-md-3" }) => {
-  const [selectedOption, setSelectedOption] = useState(unidadesMedidas[0]);
-
+export const SelectUnidadMedida = ({
+  selectID,
+  col = "col-md-3",
+  getInformaction,
+  name,
+}) => {
   const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
+    getInformaction(name, selectedOption);
   };
 
   return (
@@ -22,11 +25,10 @@ export const SelectUnidadMedida = ({ selectID, col = "col-md-3" }) => {
         className="form-label mb-1"
         style={{ fontSize: "0.85rem" }}
       >
-        Unidad de Medida
+        Unidad de Medida:
       </label>
       <Select
         options={unidadesMedidas}
-        defaultValue={selectedOption}
         onChange={handleChange}
         isSearchable={false}
       />
