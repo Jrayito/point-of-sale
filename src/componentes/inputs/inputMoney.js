@@ -1,12 +1,18 @@
+import React from "react";
 import { InputNumber } from "primereact/inputnumber";
 
 export const InputMoney = ({
   inputID,
   col = "col-md-3",
   money,
-  setMoney,
+  getMoney,
   description,
+  name,
 }) => {
+  const handleValueChange = (event) => {
+    getMoney(name, event.value);
+  };
+
   return (
     <div className={`mb-2 ${col}`}>
       <label
@@ -19,7 +25,7 @@ export const InputMoney = ({
       <InputNumber
         inputId={inputID}
         value={money}
-        onValueChange={(e) => setMoney(e.value)}
+        onChange={handleValueChange}
         mode="currency"
         currency="USD"
         minFractionDigits={2}
