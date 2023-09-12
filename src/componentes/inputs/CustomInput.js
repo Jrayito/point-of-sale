@@ -4,6 +4,8 @@ export const CustomInput = ({
   type = "text",
   placeholder,
   col = "col-md-3",
+  getInformaction,
+  name,
 }) => {
   return (
     <div className={`mb-2 ${col}`}>
@@ -20,6 +22,7 @@ export const CustomInput = ({
         id={inputID}
         name={inputID}
         placeholder={placeholder}
+        onChange={(event) => getInformaction(name, event.target.value)}
       />
     </div>
   );
