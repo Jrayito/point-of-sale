@@ -1,7 +1,7 @@
 import { Icon } from "./Icon.js";
 import { useSidebar } from "../context/sidebarContext.js";
 
-export const MainHeader = ({ targetModal }) => {
+export const MainHeader = ({ children }) => {
   const { collapsed, changeCollapse } = useSidebar();
 
   return (
@@ -14,16 +14,7 @@ export const MainHeader = ({ targetModal }) => {
           <Icon name="menu" />
         </span>
       </button>
-      <button
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#ModalProductoNuevo"
-      >
-        <span className="d-flex aling-items-center justify-content-center">
-          <Icon name="add" />
-          <span className="ms-2">Producto Nuevo</span>
-        </span>
-      </button>
+      <div>{children}</div>
     </div>
   );
 };
