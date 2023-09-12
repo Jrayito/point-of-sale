@@ -4,6 +4,7 @@ import { MainContainer } from "../componentes/MainContainer.js";
 import { MainHeader } from "../componentes/MainHeader.js";
 import { Loader } from "../componentes/Loader.js";
 import { ModalProductoNuevo } from "../componentes/ModalProductoNuevo.js";
+import { ButtonAdd } from "../componentes/buttons/ButtonAdd.js";
 
 export const Productos = () => {
   const [loading, setLoading] = useState(false); //Para cambiar el estado del spinner cuando los datos hayan cargado.
@@ -14,7 +15,9 @@ export const Productos = () => {
       <div className="container-sidebar">
         <Sidebar />
         <MainContainer>
-          <MainHeader targetModal="#ModalProductoNuevo" />
+          <MainHeader>
+            <ButtonAdd targetModal="#ModalProductoNuevo" />
+          </MainHeader>
           <section className="mt-4">
             <h4>Productos</h4>
           </section>
