@@ -3,7 +3,7 @@ import { Icon } from "../Icon.js";
 export const BottonGuardar = ({ handleGuardar, isSave = false }) => {
   return (
     <>
-      <button className="btn btn-success">
+      <button className="btn btn-success text-white" onClick={handleGuardar}>
         <span className="d-flex align-items-center justify-content-center">
           {isSave ? (
             <span
