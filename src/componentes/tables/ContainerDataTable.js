@@ -4,6 +4,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { useSidebar } from "../../context/sidebarContext";
 import { Button } from "primereact/button";
+import { ButtonAccion } from "../buttons/ButtonAccion.js";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import * as xlsx from "xlsx/xlsx.mjs";
@@ -74,15 +75,19 @@ export const ContainerDataTable = ({ headers, items, filters, dataExport }) => {
   };
 
   const header = (
-    <div className="flex align-items-center justify-content-end gap-2">
-      <Button
+    <div className="d-flex align-items-center justify-content-end gap-2 my-2">
+      <ButtonAccion description={"Descargar CSV"} icon="description" />
+      <ButtonAccion description={"Descargar Excel"} icon="task" />
+      <ButtonAccion description={"Descargar PDF"} icon="picture_as_pdf" />
+
+      {/* <Button
         type="button"
         icon="pi pi-file"
         rounded
         onClick={() => exportCSV(false)}
         data-pr-tooltip="CSV"
-      />
-      <Button
+      /> */}
+      {/* <Button
         type="button"
         icon="pi pi-file-excel"
         severity="success"
@@ -97,7 +102,7 @@ export const ContainerDataTable = ({ headers, items, filters, dataExport }) => {
         rounded
         onClick={exportPdf}
         data-pr-tooltip="PDF"
-      />
+      /> */}
     </div>
   );
 
