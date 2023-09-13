@@ -3,3 +3,7 @@
 .color3 { background-color: #206d6c };
 .color4 { background-color: #5a9c9c };
 .color5 { background-color: #d3c5ac };
+
+.p-inputtext{
+   padding: 0.375rem 0.75rem !important;
+}

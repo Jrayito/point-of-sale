@@ -9,7 +9,7 @@ export const useSidebar = () => {
 };
 
 export const SidebarProvider = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
   const [broken, setBroken] = useState(false);
   const [toggle, setToggle] = useState(false);
 

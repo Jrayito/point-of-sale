@@ -5,7 +5,7 @@ export const unidadesMedidas = [
   { value: "pza", label: "Pieza" },
   { value: "mt", label: "Metros" },
   { value: "lt", label: "Litros" },
-  { value: "k", label: "Kilos" },
+  { value: "kl", label: "Kilos" },
 ];
 
 export const SelectUnidadMedida = ({
@@ -17,7 +17,7 @@ export const SelectUnidadMedida = ({
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      padding: "0.13rem 0.1rem",
+      // padding: "0.04rem 0.1rem",
     }),
   };
 

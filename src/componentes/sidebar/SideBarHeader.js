@@ -11,7 +11,7 @@ export const SideBarHeader = ({ isCollpase }) => {
           size={30}
         />
       </div>
-      <div className="flex-grow-1 ms-3">
+      <div className="flex-grow-1 ms-3 text-white">
         {!isCollpase ? <small> J. Raymundo Hernández Zapata</small> : ""}
       </div>
     </div>
