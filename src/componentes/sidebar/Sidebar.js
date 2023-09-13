@@ -6,10 +6,16 @@ import "../../style/sidebar.css";
 import { useSidebar } from "../../context/sidebarContext.js";
 
 export const Sidebar = () => {
-  const { collapsed } = useSidebar();
+  const { collapsed, toggle, setBroken, changeToggle } = useSidebar();
 
   return (
-    <Bar collapsed={collapsed}>
+    <Bar
+      collapsed={collapsed}
+      breakPoint="xs"
+      onBreakPoint={setBroken}
+      toggled={toggle}
+      onBackdropClick={() => changeToggle(!toggle)}
+    >
       <div className="container-menu-sidebar">
         <SideBarHeader isCollpase={collapsed} />
         <Menu>
