@@ -8,6 +8,55 @@ import { useSidebar } from "../../context/sidebarContext.js";
 export const Sidebar = () => {
   const { collapsed, toggle, setBroken, changeToggle } = useSidebar();
 
+  const themes = {
+    light: {
+      sidebar: {
+        backgroundColor: "#ffffff",
+        color: "#607489",
+      },
+      menu: {
+        menuContent: "#fbfcfd",
+        icon: "#fff",
+        hover: {
+          backgroundColor: "#c5e4ff",
+          color: "#44596e",
+        },
+        disabled: {
+          color: "#9fb6cf",
+        },
+      },
+    },
+  };
+
+  const menuItemsStyle = {
+    root: {
+      fontSize: "15px",
+      fontWeight: 400,
+    },
+    button: ({ level, active }) => {
+      if (level === 0) {
+        return {
+          color: themes.light.menu.icon,
+          "&:hover": {
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
+          },
+        };
+      } else {
+        return {
+          color: "#000",
+        };
+      }
+    },
+    icon: {
+      color: themes.light.menu.icon,
+    },
+    SubMenuExpandIcon: {
+      color: themes.light.menu.icon,
+    },
+    subMenuContent: ({ level }) => ({
+      backgroundColor: "#fff",
+    }),
+  };
   return (
     <Bar
       collapsed={collapsed}
@@ -15,10 +64,11 @@ export const Sidebar = () => {
       onBreakPoint={setBroken}
       toggled={toggle}
       onBackdropClick={() => changeToggle(!toggle)}
+      backgroundColor="rgba(32, 109, 108, 0.9)"
     >
       <div className="container-menu-sidebar">
         <SideBarHeader isCollpase={collapsed} />
-        <Menu>
+        <Menu menuItemStyles={menuItemsStyle}>
           <MenuItem icon={<Icon name="home" />} component={<Link to="/" />}>
             Dashboard
           </MenuItem>
