@@ -1,6 +1,6 @@
 import React from "react";
 import "./assets/bootstrap/main.css";
-// import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/themes/bootstrap4-light-blue/theme.css";
 import "primereact/resources/primereact.css";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./views/Login.js";
