@@ -1,15 +1,110 @@
 import "../../style/paginator.css";
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { useSidebar } from "../../context/sidebarContext";
+import { Button } from "primereact/button";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+import * as xlsx from "xlsx/xlsx.mjs";
 
-export const ContainerDataTable = ({ headers, products, filters }) => {
+export const ContainerDataTable = ({ headers, items, filters, dataExport }) => {
+  const dataTableRef = useRef();
+  const [exportColumns, setExportColumns] = useState([]);
+  const [headerColumns, setHeaderColumns] = useState([]);
   const { broken } = useSidebar();
+
+  useEffect(() => {
+    setExportColumns(headers.map((col) => col.code));
+    setHeaderColumns(headers.map((col) => col.header));
+  }, [headers]);
+
+  const exportCSV = (selectionOnly) => {
+    dataTableRef.current.exportCSV({ selectionOnly });
+  };
+
+  const exportInformacion = dataExport.map((item) =>
+    exportColumns.map((column) => item[column])
+  );
+
+  const mappedData = dataExport.map((item) => {
+    const newItem = {};
+    headers.forEach((head) => {
+      // console.log(head);
+      newItem[head.header] = item[head.code];
+    });
+    return newItem;
+  });
+
+  const exportPdf = () => {
+    const doc = new jsPDF();
+    autoTable(doc, {
+      head: [headerColumns],
+      body: exportInformacion,
+    });
+    doc.save("items.pdf");
+  };
+
+  const exportExcel = () => {
+    const worksheet = xlsx.utils.json_to_sheet(mappedData);
+    const workbook = { Sheets: { data: worksheet }, SheetNames: ["data"] };
+    const excelBuffer = xlsx.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+    saveAsExcelFile(excelBuffer, "items");
+  };
+
+  const saveAsExcelFile = (buffer, fileName) => {
+    import("file-saver").then((module) => {
+      if (module && module.default) {
+        let EXCEL_TYPE =
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+        let EXCEL_EXTENSION = ".xlsx";
+        const data = new Blob([buffer], {
+          type: EXCEL_TYPE,
+        });
+
+        module.default.saveAs(
+          data,
+          fileName + "_export_" + new Date().getTime() + EXCEL_EXTENSION
+        );
+      }
+    });
+  };
+
+  const header = (
+    <div className="flex align-items-center justify-content-end gap-2">
+      <Button
+        type="button"
+        icon="pi pi-file"
+        rounded
+        onClick={() => exportCSV(false)}
+        data-pr-tooltip="CSV"
+      />
+      <Button
+        type="button"
+        icon="pi pi-file-excel"
+        severity="success"
+        rounded
+        onClick={exportExcel}
+        data-pr-tooltip="XLS"
+      />
+      <Button
+        type="button"
+        icon="pi pi-file-pdf"
+        severity="warning"
+        rounded
+        onClick={exportPdf}
+        data-pr-tooltip="PDF"
+      />
+    </div>
+  );
 
   return (
     <DataTable
-      value={products}
+      ref={dataTableRef}
+      value={items}
       size="small"
       stripedRows
       paginator
@@ -21,6 +116,7 @@ export const ContainerDataTable = ({ headers, products, filters }) => {
       // globalFilterFields={globalFiltersFields}
       filterDisplay="row"
       filters={filters}
+      header={header}
     >
       {headers.map((col, i) => (
         <Column
