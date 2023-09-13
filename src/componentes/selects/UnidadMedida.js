@@ -11,11 +11,19 @@ export const unidadesMedidas = [
 export const SelectUnidadMedida = ({
   selectID,
   col = "col-md-3",
-  getInformaction,
+  getInformation,
   name,
 }) => {
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      padding: "0.13rem 0.1rem",
+    }),
+  };
+
   const handleChange = (selectedOption) => {
-    getInformaction(name, selectedOption);
+    console.log(selectedOption);
+    getInformation(name, selectedOption);
   };
 
   return (
@@ -31,6 +39,7 @@ export const SelectUnidadMedida = ({
         options={unidadesMedidas}
         onChange={handleChange}
         isSearchable={false}
+        styles={customStyles}
       />
     </div>
   );
