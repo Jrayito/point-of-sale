@@ -12,6 +12,17 @@ import { Dropdown } from "primereact/dropdown";
 import { unidadesMedidas } from "../componentes/selects/UnidadMedida.js";
 
 export const Productos = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true); //Para cambiar el estado del spinner cuando los datos hayan cargado.
+  const [filters, setFilters] = useState({
+    sku: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    "unidadMedida.label": {
+      value: null,
+      matchMode: FilterMatchMode.CONTAINS,
+    },
+    description: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  });
+
   const dropDownUnidadMedida = (options) => {
     return (
       <Dropdown
@@ -26,6 +37,10 @@ export const Productos = () => {
       />
     );
   };
+  const dataExport = products.map((item) => ({
+    ...item,
+    "unidadMedida.label": item.unidadMedida.label,
+  }));
 
   const headers = [
     { code: "sku", header: "SKU", filter: true },
@@ -42,19 +57,6 @@ export const Productos = () => {
     { code: "stock", header: "Stock", filter: false },
     { code: "minStock", header: "Stock Mínimo", filter: false },
   ];
-
-  const [filters, setFilters] = useState({
-    sku: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    "unidadMedida.label": {
-      value: null,
-      matchMode: FilterMatchMode.CONTAINS,
-    },
-    description: { value: null, matchMode: FilterMatchMode.CONTAINS },
-  });
-
-  // const globlaFiltersFields = ["sku", "description", "unidadMedida.label"];
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); //Para cambiar el estado del spinner cuando los datos hayan cargado.
 
   useEffect(() => {
     setProducts([]);
@@ -83,9 +85,10 @@ export const Productos = () => {
           </section>
           <div className="card p-3 mt-3">
             <ContainerDataTable
-              products={products}
+              items={products}
               headers={headers}
               filters={filters}
+              dataExport={dataExport}
             />
           </div>
         </MainContainer>
