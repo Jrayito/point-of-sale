@@ -6,6 +6,7 @@ export const CustomInput = ({
   col = "col-md-3",
   getInformaction,
   name,
+  value,
 }) => {
   return (
     <div className={`mb-2 ${col}`}>
@@ -18,6 +19,7 @@ export const CustomInput = ({
       </label>
       <input
         type={type}
+        value={value}
         className="form-control"
         id={inputID}
         name={inputID}
