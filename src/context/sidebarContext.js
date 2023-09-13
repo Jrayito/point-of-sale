@@ -9,14 +9,29 @@ export const useSidebar = () => {
 };
 
 export const SidebarProvider = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+  const [broken, setBroken] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   const changeCollapse = (collapsed) => {
     setCollapsed(collapsed);
   };
 
+  const changeToggle = (toggle) => {
+    setToggle(toggle);
+  };
+
   return (
-    <sidebarContext.Provider value={{ changeCollapse, collapsed }}>
+    <sidebarContext.Provider
+      value={{
+        changeCollapse,
+        changeToggle,
+        setBroken,
+        collapsed,
+        broken,
+        toggle,
+      }}
+    >
       {children}
     </sidebarContext.Provider>
   );
