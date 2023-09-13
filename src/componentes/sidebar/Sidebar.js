@@ -60,7 +60,7 @@ export const Sidebar = () => {
   return (
     <Bar
       collapsed={collapsed}
-      breakPoint="xs"
+      breakPoint="md"
       onBreakPoint={setBroken}
       toggled={toggle}
       onBackdropClick={() => changeToggle(!toggle)}
