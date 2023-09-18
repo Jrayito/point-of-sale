@@ -85,13 +85,16 @@ export const ModalProductoNuevo = () => {
       >
         <div className="modal-dialog modal-xl">
           <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="ModalProductoNuevoLabel">
+            <div className="modal-header bg-success">
+              <h1
+                className="modal-title fs-5 text-white"
+                id="ModalProductoNuevoLabel"
+              >
                 Registrar Producto
               </h1>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close text-white"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>

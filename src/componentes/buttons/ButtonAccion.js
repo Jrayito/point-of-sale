@@ -2,7 +2,7 @@ import { Icon } from "../Icon";
 import { Tooltip } from "primereact/tooltip";
 import { useSidebar } from "../../context/sidebarContext";
 
-export const ButtonAccion = ({ description, onHandleDescargar, icon }) => {
+export const ButtonAccion = ({ description, onHandleAccion, icon }) => {
   const { broken } = useSidebar();
   return (
     <>
@@ -11,6 +11,7 @@ export const ButtonAccion = ({ description, onHandleDescargar, icon }) => {
         className="btn btn-light text-primary btn-tooltip"
         data-pr-tooltip={description}
         data-pr-position="top"
+        onClick={onHandleAccion}
       >
         <span className="d-flex align-items-center">
           <Icon name={icon} />
