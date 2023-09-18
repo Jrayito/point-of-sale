@@ -76,9 +76,21 @@ export const ContainerDataTable = ({ headers, items, filters, dataExport }) => {
 
   const header = (
     <div className="d-flex align-items-center justify-content-end gap-2 my-2">
-      <ButtonAccion description={"Descargar CSV"} icon="description" />
-      <ButtonAccion description={"Descargar Excel"} icon="task" />
-      <ButtonAccion description={"Descargar PDF"} icon="picture_as_pdf" />
+      <ButtonAccion
+        description={"Descargar CSV"}
+        icon="description"
+        onHandleAccion={() => exportCSV(false)}
+      />
+      <ButtonAccion
+        description={"Descargar Excel"}
+        icon="task"
+        onHandleAccion={exportExcel}
+      />
+      <ButtonAccion
+        description={"Descargar PDF"}
+        icon="picture_as_pdf"
+        onHandleAccion={exportPdf}
+      />
 
       {/* <Button
         type="button"
