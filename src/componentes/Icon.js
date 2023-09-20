@@ -1,5 +1,7 @@
-export const Icon = ({name, marginClass}) =>{
-   return (
-      <i className={`material-icons ${marginClass ? marginClass: ""}`}>{name}</i> 
-   );
-}
+export const Icon = ({ name, marginClass, size = "md-24" }) => {
+  return (
+    <i className={`material-icons ${size} ${marginClass ? marginClass : ""}`}>
+      {name}
+    </i>
+  );
+};
