@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Icon } from "./Icon";
 
-export const Breadcrumb = ({ paths }) => {
+export const Breadcrumb = ({ paths, children }) => {
   return (
     <nav aria-label="breadcrumb" className="mt-2">
       <ol className="breadcrumb">
@@ -16,11 +16,16 @@ export const Breadcrumb = ({ paths }) => {
             aria-current="page"
             key={pat.head}
           >
-            <Link to={pat.path} className="text-primary">
+            <Link
+              to={pat.path}
+              className="text-primary"
+              style={{ textDecoration: "none" }}
+            >
               {pat.head}
             </Link>
           </li>
         ))}
+        {children}
       </ol>
     </nav>
   );
