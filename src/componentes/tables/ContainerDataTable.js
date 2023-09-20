@@ -3,13 +3,18 @@ import React, { useRef, useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { useSidebar } from "../../context/sidebarContext";
-import { Button } from "primereact/button";
 import { ButtonAccion } from "../buttons/ButtonAccion.js";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import * as xlsx from "xlsx/xlsx.mjs";
 
-export const ContainerDataTable = ({ headers, items, filters, dataExport }) => {
+export const ContainerDataTable = ({
+  headers,
+  items,
+  filters,
+  dataExport,
+  children,
+}) => {
   const dataTableRef = useRef();
   const [exportColumns, setExportColumns] = useState([]);
   const [headerColumns, setHeaderColumns] = useState([]);
@@ -91,30 +96,6 @@ export const ContainerDataTable = ({ headers, items, filters, dataExport }) => {
         icon="picture_as_pdf"
         onHandleAccion={exportPdf}
       />
-
-      {/* <Button
-        type="button"
-        icon="pi pi-file"
-        rounded
-        onClick={() => exportCSV(false)}
-        data-pr-tooltip="CSV"
-      /> */}
-      {/* <Button
-        type="button"
-        icon="pi pi-file-excel"
-        severity="success"
-        rounded
-        onClick={exportExcel}
-        data-pr-tooltip="XLS"
-      />
-      <Button
-        type="button"
-        icon="pi pi-file-pdf"
-        severity="warning"
-        rounded
-        onClick={exportPdf}
-        data-pr-tooltip="PDF"
-      /> */}
     </div>
   );
 
@@ -145,8 +126,11 @@ export const ContainerDataTable = ({ headers, items, filters, dataExport }) => {
           filterField={col.code}
           showFilterMenu={col.showFilterMenu ?? true}
           filterElement={col.filterElement ?? null}
+          body={col.body ?? null}
+          bodyStyle={{ textAlign: col.textAlign }}
         />
       ))}
+      {children}
     </DataTable>
   );
 };
