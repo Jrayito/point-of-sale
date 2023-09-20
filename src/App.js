@@ -7,10 +7,13 @@ import { Login } from "./views/Login.js";
 import { AuthProvider } from "./context/authContext.js";
 import { SidebarProvider } from "./context/sidebarContext.js";
 import { ProtectedRoute } from "./componentes/ProtectedRoute.js";
-import { Dashboard } from "./views/Dashboard.js";
-import { Productos } from "./views/Productos.js";
 import "./style/reset.css";
 import "bootstrap/dist/js/bootstrap.bundle.js"; // Carga del js de bootstrap
+
+// Rutas
+import { Dashboard } from "./views/Dashboard.js";
+import { Productos } from "./views/Productos.js";
+import { DetalleProducto } from "./views/detallesProducto";
 
 function App() {
   return (
@@ -34,6 +37,16 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            <Route
+              path="/detallesProducto/:productoId"
+              element={
+                <ProtectedRoute>
+                  <DetalleProducto />
+                </ProtectedRoute>
+              }
+            />
+
             <Route path="/login" element={<Login />} />
           </Routes>
         </SidebarProvider>
