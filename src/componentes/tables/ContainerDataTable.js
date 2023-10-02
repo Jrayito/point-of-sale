@@ -2,6 +2,7 @@ import "../../style/paginator.css";
 import React, { useRef, useEffect, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { addLocale } from "primereact/api";
 import { useSidebar } from "../../context/sidebarContext";
 import { ButtonAccion } from "../buttons/ButtonAccion.js";
 import jsPDF from "jspdf";
@@ -15,6 +16,15 @@ export const ContainerDataTable = ({
   dataExport,
   children,
 }) => {
+  addLocale("es", {
+    startsWith: "Comienza con",
+    contains: "Contiene",
+    notContains: "No contiene",
+    endsWith: "Termina con",
+    equals: "Igual a",
+    notEquals: "No igual a",
+    noFilter: "Borrar filtro",
+  });
   const dataTableRef = useRef();
   const [exportColumns, setExportColumns] = useState([]);
   const [headerColumns, setHeaderColumns] = useState([]);

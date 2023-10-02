@@ -2,6 +2,7 @@ import React from "react";
 import "./assets/bootstrap/main.css";
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";
 import "primereact/resources/primereact.css";
+import { locale } from "primereact/api";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./views/Login.js";
 import { AuthProvider } from "./context/authContext.js";
@@ -16,6 +17,7 @@ import { Productos } from "./views/Productos.js";
 import { DetalleProducto } from "./views/detallesProducto";
 
 function App() {
+  locale("es");
   return (
     <div className="vh-100 bg-body-tertiary">
       <AuthProvider>
