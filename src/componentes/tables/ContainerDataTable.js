@@ -46,7 +46,6 @@ export const ContainerDataTable = ({
   const mappedData = dataExport.map((item) => {
     const newItem = {};
     headers.forEach((head) => {
-      // console.log(head);
       newItem[head.header] = item[head.code];
     });
     return newItem;
