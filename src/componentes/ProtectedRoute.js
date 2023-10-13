@@ -1,12 +1,13 @@
-import {Navigate} from "react-router-dom";
+import { Navigate, Routes } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
-export const ProtectedRoute = ({children}) => {
-   const {user, loading} = useAuth();
+export const ProtectedRoute = ({ children }) => {
+  const { user, loading } = useAuth();
 
-   if(loading) return <h1>Cargando...</h1>
+  if (loading) return <h1>Cargando...</h1>;
 
-   if(!user) return <Navigate to="/login" />
+  if (!user) return <Navigate to="/login" />;
 
-   return  <>{children}</>
-}
+  //   Se modifico para poder porteger todas las rutas, en caso de error reemplazar el Route por un Fragment
+  return <Routes>{children}</Routes>;
+};

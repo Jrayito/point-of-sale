@@ -22,39 +22,59 @@ function App() {
     <div className="vh-100 bg-body-tertiary">
       <AuthProvider>
         <SidebarProvider>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/productos"
-              element={
-                <ProtectedRoute>
-                  <Productos />
-                </ProtectedRoute>
-              }
-            />
-
+          <ProtectedRoute>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/productos" element={<Productos />} />
             <Route
               path="/detallesProducto/:productoId"
-              element={
-                <ProtectedRoute>
-                  <DetalleProducto />
-                </ProtectedRoute>
-              }
+              element={<DetalleProducto />}
             />
-
-            <Route path="/login" element={<Login />} />
-          </Routes>
+          </ProtectedRoute>
         </SidebarProvider>
       </AuthProvider>
     </div>
   );
 }
+
+// function App() {
+//   locale("es");
+//   return (
+//     <div className="vh-100 bg-body-tertiary">
+//       <AuthProvider>
+//         <SidebarProvider>
+//           <Routes>
+//             <Route
+//               path="/"
+//               element={
+//                 <ProtectedRoute>
+//                   <Dashboard />
+//                 </ProtectedRoute>
+//               }
+//             />
+//             <Route
+//               path="/productos"
+//               element={
+//                 <ProtectedRoute>
+//                   <Productos />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+//             <Route
+//               path="/detallesProducto/:productoId"
+//               element={
+//                 <ProtectedRoute>
+//                   <DetalleProducto />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+//             <Route path="/login" element={<Login />} />
+//           </Routes>
+//         </SidebarProvider>
+//       </AuthProvider>
+//     </div>
+//   );
+// }
 
 export default App;
